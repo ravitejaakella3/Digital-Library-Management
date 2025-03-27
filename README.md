@@ -1,89 +1,61 @@
 # Digital Library Management System
 
 ## Overview
-A Java command-line application for managing a digital library system. Allows librarians to perform CRUD operations on books and track their availability.
+A Java-based library management system that enables librarians to perform CRUD operations on books and track availability through a command-line interface.
 
 ## Features
 - Add new books with unique IDs
 - View all books in the library
 - Search books by ID or title
 - Update book details
-- Delete books from the catalog
+- Delete books from catalog
 - Track book availability status
 
 ## Project Structure
 ```
-digital-library-management/
+Digital Library/
 ├── src/
 │   ├── app/
-│   │   └── DigitalLibrary.java       # Main application & UI
+│   │   └── DigitalLibrary.java    # Main application
 │   ├── models/
-│   │   └── Book.java                 # Book entity
+│   │   └── Book.java             # Book entity
 │   └── services/
-│       └── LibraryManager.java       # Business logic
+│       └── LibraryManager.java    # Business logic
 └── test/
-    └── LibraryManagerTest.java       # Unit tests
+    └── LibraryManagerTest.java    # Unit tests
 ```
 
-## Prerequisites
-- Java Development Kit (JDK) 17 or higher
-- JUnit 5.8.2 for testing
+## Requirements
+- Java 17 or higher
+- Maven 3.8+
 
 ## Quick Start
-
-1. Clone the repository:
+1. Download the latest release
+2. Extract the ZIP file
+3. Run the application:
 ```batch
-git clone https://github.com/ravitejaakella3/Digital-Library-Management
-cd digital-library-management
+run.bat
 ```
 
-2. Create output directory:
+## Build from Source
 ```batch
-mkdir out
+mvn clean package
+java -jar target/digital-library-1.0.0.jar
 ```
 
-3. Compile the application:
-```batch
-javac -d out -sourcepath src src/app/DigitalLibrary.java
-```
-
-4. Run the application:
-```batch
-java -cp out app.DigitalLibrary
-```
-
-## Testing
-
-1. Download JUnit:
-```batch
-mkdir lib
-curl -o lib/junit-platform-console-standalone-1.8.2.jar https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.8.2/junit-platform-console-standalone-1.8.2.jar
-```
-
-2. Compile and run tests:
-```batch
-javac -d out -cp ".;lib/junit-platform-console-standalone-1.8.2.jar" src/models/Book.java src/services/LibraryManager.java test/LibraryManagerTest.java
-java -jar lib/junit-platform-console-standalone-1.8.2.jar --class-path out --scan-class-path
-```
-
-## Usage Guide
-
-### Input Constraints
+## Input Constraints
 | Field        | Validation Rules                    |
 |--------------|-------------------------------------|
 | Book ID      | Positive integer, unique            |
 | Title        | Non-empty, max 100 characters       |
 | Author       | Non-empty, max 50 characters        |
 | Genre        | Non-empty, max 30 characters        |
-| Availability | "Available" or "Checked Out" only    |
+| Availability | "Available" or "Checked Out"         |
 
-### Menu Options
-1. Add Book - Add a new book with details
-2. View All Books - Display complete catalog
-3. Search Book - Find by ID or title
-4. Update Book - Modify book details
-5. Delete Book - Remove a book
-6. Exit - Close application
+## Testing
+```batch
+mvn test
+```
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License - See LICENSE file for details

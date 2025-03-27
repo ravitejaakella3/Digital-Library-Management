@@ -1,0 +1,3 @@
+app\DigitalLibrary.class
+models\Book.class
+services\LibraryManager.class
