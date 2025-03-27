@@ -1,7 +1,7 @@
 # Digital Library Management System
 
 ## Overview
-A Java-based library management system that enables librarians to perform book management operations through a command-line interface, implementing CRUD operations and availability tracking.
+A Java command-line application for managing a digital library system. Allows librarians to perform CRUD operations on books and track their availability.
 
 ## Features
 - Add new books with unique IDs
@@ -13,74 +13,60 @@ A Java-based library management system that enables librarians to perform book m
 
 ## Project Structure
 ```
-Digital Library/
+digital-library-management/
 ├── src/
 │   ├── app/
 │   │   └── DigitalLibrary.java       # Main application & UI
 │   ├── models/
-│   │   └── Book.java                 # Book entity class
+│   │   └── Book.java                 # Book entity
 │   └── services/
-│       └── LibraryManager.java       # Business logic & data management
+│       └── LibraryManager.java       # Business logic
 └── test/
     └── LibraryManagerTest.java       # Unit tests
 ```
 
-## Requirements
+## Prerequisites
 - Java Development Kit (JDK) 17 or higher
-- JUnit 5.8.2 for unit testing
+- JUnit 5.8.2 for testing
 
-## Build and Run
+## Quick Start
 
-### Setting up the project
+1. Clone the repository:
+```batch
+git clone https://github.com/ravitejaakella3/Digital-Library-Management
+cd digital-library-management
+```
+
+2. Create output directory:
 ```batch
 mkdir out
+```
+
+3. Compile the application:
+```batch
+javac -d out -sourcepath src src/app/DigitalLibrary.java
+```
+
+4. Run the application:
+```batch
+java -cp out app.DigitalLibrary
+```
+
+## Testing
+
+1. Download JUnit:
+```batch
 mkdir lib
 curl -o lib/junit-platform-console-standalone-1.8.2.jar https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.8.2/junit-platform-console-standalone-1.8.2.jar
 ```
 
-### Compile and Run
+2. Compile and run tests:
 ```batch
-# Compile the application
-javac -d out -sourcepath src src/app/DigitalLibrary.java
-
-# Run the application
-java -cp out app.DigitalLibrary
-```
-
-### Running Tests
-```batch
-# Compile tests
 javac -d out -cp ".;lib/junit-platform-console-standalone-1.8.2.jar" src/models/Book.java src/services/LibraryManager.java test/LibraryManagerTest.java
-
-# Run tests
 java -jar lib/junit-platform-console-standalone-1.8.2.jar --class-path out --scan-class-path
 ```
 
 ## Usage Guide
-
-### Menu Options
-1. **Add Book**
-   - Enter unique Book ID
-   - Provide title, author, and genre
-   - Set availability status
-
-2. **View All Books**
-   - Displays complete book catalog
-   - Shows all book details
-
-3. **Search Book**
-   - Search by ID or title
-   - Case-insensitive search
-   - Supports partial matching
-
-4. **Update Book**
-   - Modify any book detail
-   - Update availability status
-   - Maintains ID integrity
-
-5. **Delete Book**
-   - Remove book by ID
-   - Confirmation required
 
 ### Input Constraints
 | Field        | Validation Rules                    |
@@ -91,33 +77,13 @@ java -jar lib/junit-platform-console-standalone-1.8.2.jar --class-path out --sca
 | Genre        | Non-empty, max 30 characters        |
 | Availability | "Available" or "Checked Out" only    |
 
-## Technical Details
-
-### Implementation Features
-- In-memory storage using HashMap
-- Comprehensive input validation
-- Exception handling for all operations
-- Logging system for operation tracking
-- Unit test coverage for all features
-
-### Error Handling
-- Input validation for all fields
-- Duplicate ID prevention
-- Clear error messages
-- Graceful error recovery
-
-## Development
-
-### Running in VS Code
-1. Open project folder in VS Code
-2. Install "Java Extension Pack"
-3. Open integrated terminal
-4. Run build and test commands
-
-### Running Tests in VS Code
-1. Click Testing icon in sidebar
-2. Click Run Tests button
-3. View results in Testing panel
+### Menu Options
+1. Add Book - Add a new book with details
+2. View All Books - Display complete catalog
+3. Search Book - Find by ID or title
+4. Update Book - Modify book details
+5. Delete Book - Remove a book
+6. Exit - Close application
 
 ## License
-MIT License - See LICENSE file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
